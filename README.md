@@ -1,31 +1,76 @@
+<div align="center">
+
 # 🏥 AI Healthcare Chatbot
 
-An AI-powered healthcare assistant built with **Flask**, **Groq API**, and **Llama 3.3 70B**. Ask any health-related question and get instant, empathetic responses — with full conversation memory so the bot understands context across the entire chat.
+### Intelligent Conversational Health Assistant powered by Llama 3.3 70B
 
-> ⚠️ **Disclaimer:** This chatbot provides general health information only. Always consult a qualified doctor for medical diagnosis or emergencies.
+[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![Flask](https://img.shields.io/badge/Flask-2.x-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com)
+[![Groq](https://img.shields.io/badge/Groq-LPU%20Inference-F55036?style=for-the-badge&logo=groq&logoColor=white)](https://groq.com)
+[![Llama](https://img.shields.io/badge/Llama_3.3-70B-blueviolet?style=for-the-badge)](https://groq.com)
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
+
+<br/>
+
+> An AI-powered healthcare assistant that provides empathetic, context-aware health information using state-of-the-art LLM technology. Built with a Flask REST API backend and full conversation memory.
+
+<br/>
+
+> ⚠️ **Medical Disclaimer:** This application provides general health information only and is **not a substitute for professional medical advice**. Always consult a qualified healthcare provider for diagnosis and treatment.
+
+</div>
 
 ---
 
-## 🚀 Features
+## 📋 Table of Contents
 
-- **Conversational memory** — the bot remembers everything said in the session, so follow-up questions work naturally
-- **Powered by Llama 3.3 70B** — one of the most capable open LLMs available via Groq's ultra-fast inference API
-- **Healthcare-focused system prompt** — responses are empathetic, informative, and always recommend professional consultation for serious issues
-- **REST API backend** — built with Flask, returns clean JSON responses
-- **Input validation** — handles empty inputs and exit commands gracefully
-- **Lightweight frontend** — simple HTML/CSS/JS interface served via Flask templates
+- [Overview](#-overview)
+- [Features](#-features)
+- [Tech Stack](#️-tech-stack)
+- [Project Structure](#-project-structure)
+- [Getting Started](#-getting-started)
+- [API Reference](#-api-reference)
+- [How It Works](#-how-it-works)
+- [Security](#-security)
+- [Future Roadmap](#-future-roadmap)
+- [Author](#-author)
+
+---
+
+## 🔍 Overview
+
+The **AI Healthcare Chatbot** is a full-stack conversational AI application that allows users to ask health-related questions and receive intelligent, empathetic responses. Unlike basic chatbots that treat every message independently, this system maintains **full conversation history** — meaning it understands context across the entire session, just like talking to a real doctor who remembers what you said earlier.
+
+The backend is built as a clean **REST API** using Flask, and the LLM inference is powered by **Groq's ultra-fast LPU hardware** running **Llama 3.3 70B** — one of the most capable open-source language models available today.
+
+---
+
+## ✨ Features
+
+| Feature | Description |
+|---|---|
+| 🧠 **Conversation Memory** | Full session history sent with every request — bot remembers context across the entire chat |
+| ⚡ **Ultra-fast Inference** | Powered by Groq LPU — responses in milliseconds, not seconds |
+| 🏥 **Healthcare-tuned Prompt** | System prompt engineered specifically for empathetic, responsible health responses |
+| 🔌 **REST API Backend** | Clean `/ask` endpoint returns structured JSON — easy to integrate with any frontend |
+| 🛡️ **Input Validation** | Handles empty inputs, exit commands, and edge cases gracefully |
+| 🎨 **Clean Frontend** | Lightweight HTML/CSS/JS chat interface served via Flask templates |
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Backend | Python, Flask |
-| LLM | Llama 3.3 70B (via Groq API) |
-| API Client | `groq` Python SDK |
-| Frontend | HTML, CSS, JavaScript |
-| Config | `python-dotenv` |
+<div align="center">
+
+| Layer | Technology | Purpose |
+|---|---|---|
+| **Backend** | Python + Flask | REST API server and routing |
+| **LLM** | Llama 3.3 70B | Natural language understanding and generation |
+| **Inference** | Groq API | Ultra-fast LPU-based model serving |
+| **Frontend** | HTML + CSS + JavaScript | Chat user interface |
+| **Config** | python-dotenv | Secure environment variable management |
+
+</div>
 
 ---
 
@@ -34,50 +79,58 @@ An AI-powered healthcare assistant built with **Flask**, **Groq API**, and **Lla
 ```
 AI-Healthcare-Chatbot/
 │
-├── main.py              # Flask app — routes and LLM logic
-├── .env                 # API keys (never commit this)
-├── .gitignore           # Excludes .env and __pycache__
-├── requirements.txt     # Python dependencies
+├── 📄 main.py                  # Core Flask app — routes, LLM logic, conversation memory
+├── 📄 requirements.txt         # Python dependencies
+├── 📄 .env                     # API keys — never committed to GitHub
+├── 📄 .gitignore               # Excludes .env, __pycache__, etc.
 │
-├── templates/
-│   └── index.html       # Frontend chat interface
+├── 📂 templates/
+│   └── index.html              # Frontend chat interface
 │
-└── static/
-    ├── style.css        # Styling
+└── 📂 static/
+    └── style.css               # Chat UI styling
 ```
 
 ---
 
-## ⚙️ Setup & Installation
+## 🚀 Getting Started
 
-### 1. Clone the repository
+### Prerequisites
+
+- Python 3.10 or higher
+- A free Groq API key from [console.groq.com](https://console.groq.com)
+
+### Step 1 — Clone the repository
+
 ```bash
 git clone https://github.com/jay51211/AI-Healthcare-Chatbot.git
 cd AI-Healthcare-Chatbot
 ```
 
-### 2. Install dependencies
+### Step 2 — Install dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Get your free Groq API key
-- Go to [console.groq.com](https://console.groq.com)
-- Sign up for free
-- Create a new API key
+### Step 3 — Configure your API key
 
-### 4. Create your `.env` file
-```bash
-# Create a .env file in the project root
+Create a `.env` file in the project root:
+
+```env
 GROQ_API_KEY=your_groq_api_key_here
 ```
 
-### 5. Run the app
+> 🔑 Get your free API key at [console.groq.com](https://console.groq.com) — no credit card required.
+
+### Step 4 — Run the application
+
 ```bash
 python main.py
 ```
 
-### 6. Open in browser
+### Step 5 — Open in your browser
+
 ```
 http://localhost:5000
 ```
@@ -88,30 +141,35 @@ http://localhost:5000
 
 ### `POST /ask`
 
-Send a health question and receive an AI response.
+Send a health-related question and receive an AI-generated response.
 
-**Request:**
-```
-Content-Type: application/x-www-form-urlencoded
+**Endpoint:** `/ask`  
+**Method:** `POST`  
+**Content-Type:** `application/x-www-form-urlencoded`
 
-question=What are symptoms of dehydration?
-```
+#### Request Parameters
 
-**Success Response:**
+| Parameter | Type | Required | Description |
+|---|---|---|---|
+| `question` | `string` | Yes | The health question to ask |
+
+#### Response Examples
+
+**✅ Successful Response** `200 OK`
 ```json
 {
-  "response": "Common symptoms of dehydration include dark urine, dry mouth, dizziness, and fatigue. For mild cases, increase fluid intake. If symptoms are severe, please consult a doctor immediately."
+  "response": "Common symptoms of dehydration include dark-coloured urine, dry mouth, dizziness, and fatigue. For mild cases, increase fluid and electrolyte intake. If symptoms are severe or persistent, please consult a doctor immediately."
 }
 ```
 
-**Empty input Response:**
+**⚠️ Empty Input** `400 Bad Request`
 ```json
 {
   "response": "Please write your question!"
 }
 ```
 
-**Exit command** (`exit` or `quit`):
+**👋 Exit Command** (`exit` or `quit`) `200 OK`
 ```json
 {
   "response": "Goodbye! Take care of your health."
@@ -120,51 +178,76 @@ question=What are symptoms of dehydration?
 
 ---
 
-## 💡 How It Works
-
-1. User types a health question in the frontend
-2. JavaScript sends a `POST` request to `/ask`
-3. Flask validates the input and checks for exit commands
-4. The question is added to `conversation_history`
-5. The full history is sent to Groq's API along with a healthcare system prompt
-6. Llama 3.3 70B generates a response with full conversation context
-7. The response is appended to history and returned as JSON
-8. The frontend displays the response in the chat window
+## ⚙️ How It Works
 
 ```
-User Input → Flask /ask → conversation_history → Groq API (Llama 3.3 70B) → JSON Response → UI
+┌─────────────┐     POST /ask      ┌──────────────────────┐
+│   Browser   │ ────────────────►  │   Flask Backend      │
+│ (index.html │                    │                      │
+│  + JS fetch)│ ◄────────────────  │  1. Validate input   │
+└─────────────┘   JSON response    │  2. Append to        │
+                                   │     history[]        │
+                                   │  3. Send history     │
+                                   │     to Groq API      │
+                                   └──────────┬───────────┘
+                                              │
+                                              ▼
+                                   ┌──────────────────────┐
+                                   │      Groq API        │
+                                   │   Llama 3.3 70B      │
+                                   │                      │
+                                   │  System prompt  +    │
+                                   │  Full conversation   │
+                                   │  history             │
+                                   └──────────────────────┘
 ```
+
+**Conversation Memory Flow:**
+
+Each time the user sends a message:
+1. The message is appended to `conversation_history` as `role: user`
+2. The **entire history** is sent to Groq along with the system prompt
+3. The LLM responds with full context awareness
+4. The response is appended to history as `role: assistant`
+5. On the next message, the model sees both sides of the previous conversation
+
+This enables natural follow-up questions like:
+> User: *"I have a headache"*  
+> Bot: *"Here are some possible causes..."*  
+> User: *"Is it serious?"* ← bot knows this refers to the headache
 
 ---
 
-## 🔒 Security Notes
+## 🔒 Security
 
-- **Never commit your `.env` file** — it contains your API key
-- The `.gitignore` file is configured to exclude `.env`
-- If you accidentally expose your API key, immediately delete it at [console.groq.com](https://console.groq.com) and generate a new one
-
----
-
-## 🚧 Future Improvements
-
-- Session-based conversation history using Redis (so multiple users have separate histories)
-- Maximum history length to control token usage and API costs
-- User authentication system
-- Symptom checker with structured input form
-- Docker containerization for easy deployment
-- Deployment on Render / Railway / AWS
+- **`.env` is gitignored** — your API key is never pushed to GitHub
+- **Never hardcode API keys** in source files — always use environment variables
+- If your API key is accidentally exposed, **immediately delete it** at [console.groq.com](https://console.groq.com) and generate a new one
+- Input validation prevents empty or malformed requests from reaching the LLM
 
 ---
 
-## 📦 Requirements
+## 🗺️ Future Roadmap
 
-```
+- [ ] **Session-based history with Redis** — separate conversation history per user, supports multiple concurrent users
+- [ ] **Token limit management** — automatically trim old history to control API costs
+- [ ] **Symptom checker module** — structured input form for specific symptom analysis
+- [ ] **User authentication** — login system to save and retrieve past conversations
+- [ ] **Docker containerization** — one-command deployment anywhere
+- [ ] **Cloud deployment** — host on Render, Railway, or AWS EC2
+- [ ] **Rate limiting** — prevent API abuse with Flask-Limiter
+- [ ] **Response streaming** — stream tokens in real-time for faster perceived responses
+
+---
+
+## 📦 Dependencies
+
+```txt
 flask
 groq
 python-dotenv
 ```
 
-Install all at once:
 ```bash
 pip install flask groq python-dotenv
 ```
@@ -173,13 +256,28 @@ pip install flask groq python-dotenv
 
 ## 👤 Author
 
+<div align="center">
+
 **Jay Kumbhar**
-- GitHub: [@jay51211](https://github.com/jay51211)
-- LinkedIn: [linkedin.com/in/jaykumbhar5121](https://linkedin.com/in/jaykumbhar5121)
-- Email: jaykumbhar518@gmail.com
+
+[![GitHub](https://img.shields.io/badge/GitHub-jay51211-181717?style=for-the-badge&logo=github)](https://github.com/jay51211)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-jaykumbhar5121-0A66C2?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/jaykumbhar5121)
+[![Email](https://img.shields.io/badge/Email-jaykumbhar518@gmail.com-EA4335?style=for-the-badge&logo=gmail)](mailto:jaykumbhar518@gmail.com)
+
+</div>
 
 ---
 
 ## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+
+---
+
+<div align="center">
+
+*Built by Jay Kumbhar*
+
+⭐ **If you found this project useful, please give it a star!** ⭐
+
+</div>
